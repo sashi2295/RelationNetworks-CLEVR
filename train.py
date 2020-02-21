@@ -48,8 +48,10 @@ def train(data, model, optimizer, epoch, args):
         optimizer.step()
 
         # Show progress
-        progress_bar.set_postfix(dict(loss=loss.data[0]))
-        avg_loss += loss.data[0]
+        #progress_bar.set_postfix(dict(loss=loss.data[0]))
+        #avg_loss += loss.data[0]
+        progress_bar.set_postfix(dict(loss=loss.item()))
+        avg_loss += loss.item()
         n_batches += 1
 
         if batch_idx % args.log_interval == 0:
